@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Someone Very Special ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+
+html,body{
+height:100%;
+overflow:hidden;
+font-family:'Playfair Display',serif;
+color:white;
+background:linear-gradient(-45deg,#7a0000,#b11226,#8b0000,#ffcc33);
+background-size:400% 400%;
+animation:gradientMove 18s ease infinite;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.section{
+position:absolute;
+width:100%;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+transition:opacity 1.2s ease;
+padding:30px;
+}
+
+.hidden{opacity:0;pointer-events:none;}
+
+.dramatic{
+font-family:'Great Vibes',cursive;
+font-size:46px;
+color:#ffecb3;
+margin-bottom:15px;
+text-shadow:0 0 25px gold;
+}
+
+.questionText{
+font-family:'Cormorant Garamond',serif;
+font-size:22px;
+max-width:85%;
+margin-bottom:20px;
+line-height:1.5;
+}
+
+.tease{
+font-family:'Great Vibes',cursive;
+font-size:26px;
+color:#ffe6e6;
+margin-top:15px;
+min-height:30px;
+}
+
+input,select{
+padding:12px;
+margin:8px;
+border-radius:25px;
+border:none;
+text-align:center;
+font-size:16px;
+width:220px;
+background:rgba(0,0,0,.4);
+color:white;
+}
+
+button{
+padding:12px 20px;
+border-radius:25px;
+border:none;
+background:linear-gradient(45deg,#b11226,#ffcc33);
+color:black;
+font-weight:bold;
+cursor:pointer;
+margin-top:12px;
+}
+
+/* Falling petals */
+.petal{
+position:fixed;
+top:-10px;
+animation:fall linear forwards;
+pointer-events:none;
+z-index:0;
+}
+
+@keyframes fall{
+0%{transform:translateX(0) translateY(0) rotate(0deg);opacity:1;}
+100%{transform:translateX(var(--drift)) translateY(110vh) rotate(360deg);opacity:0;}
+}
+
+/* Reveal */
+#bgImage{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0;
+transition:opacity 2.5s ease;
+filter:brightness(.9);
+}
+
+.whiteBlend{
+position:absolute;
+width:100%;
+height:100%;
+background:radial-gradient(circle at center,
+rgba(255,255,255,0) 40%,
+rgba(255,255,255,.8) 100%);
+pointer-events:none;
+}
+
+#caption{
+position:absolute;
+bottom:20%;
+width:100%;
+font-family:'Great Vibes',cursive;
+font-size:40px;
+text-shadow:0 0 30px gold;
+opacity:0;
+transition:opacity 2s ease;
+}
+
+/* LETTER */
+#letterSection{
+background:rgba(255,182,193,0.12);
+backdrop-filter:blur(4px);
+}
+
+.letterSingle{
+font-family:'Great Vibes',cursive;
+font-size:44px;
+text-align:center;
+max-width:80%;
+opacity:0;
+transform:translateY(20px);
+transition:opacity 2s ease, transform 2s ease;
+color:#ffeaea;
+}
+/* FINAL SECTION */
+
+#finalSection{
+background:linear-gradient(to bottom,#050816,#0b1d3a);
+overflow:hidden;
+}
+
+#starContainer{
+position:absolute;
+width:100%;
+height:100%;
+}
+
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+opacity:.2;
+animation:twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:.2;}
+to{opacity:1;}
+}
+
+#sunrise{
+position:absolute;
+bottom:-30%;
+width:100%;
+height:80%;
+background:radial-gradient(circle at center bottom,
+rgba(255,215,120,0.8),
+rgba(255,165,0,0.4),
+transparent 70%);
+opacity:0;
+transition:opacity 4s ease;
+}
+
+.finalText{
+position:relative;
+font-family:'Great Vibes',cursive;
+font-size:42px;
+max-width:80%;
+opacity:0;
+transform:translateY(20px);
+transition:opacity 2s ease, transform 2s ease;
+z-index:2;
+}
+
+#finalButtons{
+margin-top:30px;
+opacity:0;
+transition:opacity 2s ease;
+z-index:3;
+}
+
+#finalButtons button{
+margin:10px;
+font-size:20px;
+padding:14px 28px;
+background:linear-gradient(45deg,#ffcc33,#ff9900);
+color:black;
+border:none;
+border-radius:30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="music1" loop>
+<source src="music1.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="music2" loop>
+<source src="music2.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="music3" loop>
+<source src="music3.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="music4" loop>
+  <source src="music4.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Q1 -->
+<div class="section" id="q1">
+<div class="dramatic">It's for someonve very special..Are you that special one?...</div>
+<div class="questionText">
+There is a name I whisper softly...with love
+A name that belongs only to my love...
+if you're who you are
+Then, Tell me... what do I call you?
+</div>
+<input type="text" id="answer1">
+<button onclick="checkQ1()">Reveal</button>
+<div class="tease" id="msg1"></div>
+</div>
+
+<!-- Q2 -->
+<div class="section hidden" id="q2">
+<div class="dramatic">A Day That Changed Everything When I saw my love for the very first time.</div>
+<div class="questionText">
+There was a day...
+The world felt different...moved from beneath my legs
+The first page of our forever was written...
+When was it?
+</div>
+<input type="number" id="date" placeholder="Date">
+<select id="month">
+<option value="">Month</option>
+<option>January</option><option>February</option>
+<option>March</option><option>April</option>
+<option>May</option><option>June</option>
+<option>July</option><option>August</option>
+<option>September</option><option>October</option>
+<option>November</option><option>December</option>
+</select>
+<button onclick="checkQ2()">Reveal</button>
+<div class="tease" id="msg2"></div>
+</div>
+
+<!-- Q3 -->
+<div class="section hidden" id="q3">
+<div class="dramatic">A Secret Only My Love knows</div>
+<div class="questionText">
+Before I ever held your hand...
+Before I ever called you mine...
+I made something just for my love...
+A flower... do you remember it?
+</div>
+<input type="text" id="answer3">
+<button onclick="checkQ3()">Reveal</button>
+<div class="tease" id="msg3"></div>
+</div>
+
+<!-- Reveal -->
+<div class="section hidden" id="revealSection">
+<img id="bgImage">
+<div class="whiteBlend"></div>
+<div id="caption"></div>
+</div>
+
+<!-- LETTER -->
+<div class="section hidden" id="letterSection">
+<div id="letterLineDisplay" class="letterSingle"></div>
+</div>
+
+<!-- FINAL SECTION -->
+<div class="section hidden" id="finalSection">
+  <div id="starContainer"></div>
+  <div id="sunrise"></div>
+
+  <div id="finalText" class="finalText"></div>
+
+  <div id="finalButtons">
+  <button onclick="acceptLove()">Yes</button>
+  <button onclick="acceptLove()">Always</button>
+</div>
+</div>
+
+<script>
+
+const correctNickname="my das";
+const correctDate="31";
+const correctMonth="October";
+const correctFlower="tulip";
+
+const teaseLinesQ1=[
+"Hmm… that doesn't sound like the name I whisper at night...",
+"who are you?.",
+"I have called you with so many names..do you remember my dear",
+"Close your eyes… think softer..."
+];
+
+const teaseLinesQ2=[
+"was it fluke the first one....",
+"Think again… that day meant everything to me.",
+"That wasn’t the day our story began.."
+];
+
+const teaseLinesQ3=[
+"That wasn’t the first flower I made for you...",
+"Think carefully, my love.",
+"You can remember it… I know you can."
+];
+
+function brighten(){
+document.body.style.filter="brightness(1.3)";
+setTimeout(()=>document.body.style.filter="brightness(1)",600);
+}
+
+function fall(symbol){
+for(let i=0;i<20;i++){
+let el=document.createElement("div");
+el.className="petal";
+el.innerText=symbol;
+el.style.left=Math.random()*100+"vw";
+el.style.animationDuration=(Math.random()*4+4)+"s";
+el.style.fontSize=(Math.random()*15+20)+"px";
+el.style.setProperty('--drift',(Math.random()*200-100)+"px");
+document.body.appendChild(el);
+setTimeout(()=>el.remove(),8000);
+}
+}
+
+function morph(a,b){
+document.getElementById(a).classList.add("hidden");
+document.getElementById(b).classList.remove("hidden");
+}
+
+function checkQ1(){
+let ans=document.getElementById("answer1").value.trim();
+if(ans.toLowerCase()===correctNickname.toLowerCase()){
+
+  document.getElementById("msg1").innerText =
+  "Of course you know… because that name belongs only to you.";
+
+  brighten();
+  fall("🌻");
+
+  let m1=document.getElementById("music1");
+  m1.volume=0;
+  m1.play();
+
+  let fade=setInterval(()=>{
+    if(m1.volume<1)m1.volume+=.1;
+    else clearInterval(fade);
+  },200);
+
+  // emotional pause before next question
+  setTimeout(()=>{
+    document.getElementById("msg1").style.opacity="0";
+
+    setTimeout(()=>{
+      morph("q1","q2");
+      document.getElementById("msg1").style.opacity="1"; // reset
+    },1500);
+
+  },4000);
+}else{
+document.getElementById("msg1").innerText=
+teaseLinesQ1[Math.floor(Math.random()*teaseLinesQ1.length)];
+}
+}
+
+function checkQ2(){
+
+  let date=document.getElementById("date").value;
+  let month=document.getElementById("month").value;
+
+  if(date===correctDate && month===correctMonth){
+
+    document.getElementById("msg2").innerText =
+    "Oh...dear...how can i forget..That day..it  still lives inside me… I remember every second of it.";
+
+    brighten();
+    fall("❤️");
+
+    // emotional pause before Q3
+    setTimeout(()=>{
+
+      document.getElementById("msg2").style.opacity="0";
+
+      setTimeout(()=>{
+        morph("q2","q3");
+        document.getElementById("msg2").style.opacity="1"; // reset for safety
+      },1500);
+
+    },4000);
+
+  } else {
+
+    document.getElementById("msg2").innerText =
+    teaseLinesQ2[Math.floor(Math.random()*teaseLinesQ2.length)];
+
+  }
+}
+
+function checkQ3(){
+let ans=document.getElementById("answer3").value.trim();
+if(ans.toLowerCase()===correctFlower.toLowerCase()){
+brighten(); fall("🌹");
+setTimeout(startReveal,2200);
+}else{
+document.getElementById("msg3").innerText=
+teaseLinesQ3[Math.floor(Math.random()*teaseLinesQ3.length)];
+}
+}
+
+const images=[
+{src:"images/pic1.jpeg",text:"ohhh my baby..."},
+{src:"images/pic2.jpeg",text:"my cute little sweetu..."},
+{src:"images/pic3.jpeg",text:"You know love, You're the most Beautiful person in my life..."},
+{src:"images/pic4.jpeg",text:"You're my favorite person my besetst of best.."},
+{src:"images/pic5.jpeg",text:"I'm sorry for doubting you...My Das"},
+{src:"images/pic6.jpeg",text:"My little baby..."},
+{src:"images/pic7.jpeg",text:"Will you be My Forever mine, My Love ❤️"}
+];
+
+let index=0;
+
+function startReveal(){
+let m1=document.getElementById("music1");
+let m2=document.getElementById("music2");
+m1.pause();
+m2.volume=0; m2.play();
+let fade=setInterval(()=>{if(m2.volume<1)m2.volume+=.1;else clearInterval(fade);},200);
+morph("q3","revealSection");
+showImage();
+}
+
+function showImage(){
+if(index>=images.length){startLetter();return;}
+let img=document.getElementById("bgImage");
+let cap=document.getElementById("caption");
+img.src=images[index].src;
+img.style.opacity=1;
+cap.innerText=images[index].text;
+cap.style.opacity=1;
+setTimeout(()=>{
+img.style.opacity=0;
+cap.style.opacity=0;
+index++;
+setTimeout(showImage,2000);
+},5000);
+}
+
+function startLetter(){
+morph("revealSection","letterSection");
+let m2=document.getElementById("music2");
+m2.pause();
+let m3=document.getElementById("music3");
+m3.volume=0.3;
+m3.play();
+
+const lines=[
+"I don’t know, Das…",
+"How do I even begin to explain how much I love you, my baby?",
+"Loving you never feels repeated…it's something that i could never explain",
+"It feels new every single day...differnt",
+"My heart has never been confused about you...form the moment you came into my life",
+"I want to protect you my love..",
+"I want to hold you..my Das",
+"I want to make you the happiest girl alive, Das.",
+"You were my first love…",
+"And you will be my last.",
+"You are not just my love…",
+"You are my everything, my Baby"
+];
+
+let display=document.getElementById("letterLineDisplay");
+let i=0;
+
+function nextLine(){
+if(i>=lines.length){
+  setTimeout(startFinalSection,3000);
+  return;
+}
+
+display.innerText=lines[i];
+display.style.opacity="1";
+display.style.transform="translateY(0)";
+
+setTimeout(()=>{
+display.style.opacity="0";
+display.style.transform="translateY(-20px)";
+},3500);
+
+i++;
+setTimeout(nextLine,5500);
+}
+
+nextLine();
+}
+/* FINAL SECTION LOGIC */
+
+function startFinalSection(){
+
+  let m3 = document.getElementById("music3");
+
+  // fade out letter music smoothly
+  let fadeOut = setInterval(()=>{
+    if(m3.volume > 0.05){
+      m3.volume -= 0.05;
+    } else {
+      clearInterval(fadeOut);
+      m3.pause();
+      m3.volume = 0.3;
+    }
+  },300);
+
+  // make screen go dark for 2 seconds
+  document.body.style.background = "#000";
+
+  setTimeout(()=>{
+
+    morph("letterSection","finalSection");
+
+    let m4=document.getElementById("music4");
+    m4.volume = 0;
+    m4.play();
+
+    let fadeIn = setInterval(()=>{
+      if(m4.volume < 0.15){
+        m4.volume += 0.02;
+      } else {
+        clearInterval(fadeIn);
+      }
+    },300);
+
+    createStars();
+    startFinalLines();
+
+  },2500);
+}
+
+  function startFinalLines(){
+
+  const lines=[
+    "This Valentine… we’re miles apart my love",
+    "And I wish I could be there with you...hold you in my arms",
+    "But it's our luck...which is",
+    "I want to ask you something, my love",
+    "Next Valentine…",
+    "I want to be standing beside you..be together wherever we are...",
+    "So I’m asking you early…a whole year early..my love",
+    "Will you be my Valentine next year, My Das?"
+  ];
+
+  let text=document.getElementById("finalText");
+  let i=0;
+
+  function showLine(){
+
+    if(i>=lines.length){
+      document.getElementById("finalButtons").style.opacity="1";
+      return;
+    }
+
+    text.innerText=lines[i];
+    text.style.opacity="1";
+    text.style.transform="translateY(0)";
+
+    if(i===3){
+      document.getElementById("sunrise").style.background =
+      `radial-gradient(circle at center bottom,
+      rgba(255,70,110,1),
+      rgba(255,120,140,0.95),
+      rgba(255,190,90,0.7),
+      transparent 70%)`;
+      document.getElementById("sunrise").style.opacity="1";
+    }
+
+    setTimeout(()=>{
+      text.style.opacity="0";
+      text.style.transform="translateY(-20px)";
+    },4000);
+
+    i++;
+    setTimeout(showLine,6000);
+  }
+
+  showLine();
+}
+
+function createStars(){
+  let container=document.getElementById("starContainer");
+  for(let i=0;i<80;i++){
+    let star=document.createElement("div");
+    star.className="star";
+    star.style.top=Math.random()*100+"%";
+    star.style.left=Math.random()*100+"%";
+    star.style.animationDelay=Math.random()*3+"s";
+    container.appendChild(star);
+  }
+}
+
+
+let loveStep = 0;
+
+function acceptLove(){
+
+  const responses=[
+    "I’m waiting for that moment… to begin it with you.",
+    "Oohh baby… suno na ❤️",
+    "Jaan… you really said yes?",
+    "You make me the happiest person alive.",
+    "Next Valentine… I’ll be right beside you."
+  ];
+
+  let text=document.getElementById("finalText");
+
+  text.style.opacity="0";
+
+  setTimeout(()=>{
+    text.innerText=responses[loveStep % responses.length];
+    text.style.opacity="1";
+    text.style.transform="translateY(0)";
+  },400);
+
+  loveStep++;
+
+  if(loveStep===1){
+    document.querySelectorAll("#finalButtons button")[0].innerText="ohhh babyyy";
+    document.querySelectorAll("#finalButtons button")[1].innerText="Say it again ❤️";
+  }
+}
+
+
+</script>
+
+</body>
+</html>
